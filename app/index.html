@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palm Shores — Cover Art Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="studio" id="studio">
+  <section class="panel-side" aria-label="Cover controls">
+    <header class="brand">
+      <p class="brand-kicker">★ PALM SHORES ★</p>
+      <h1>Cover Art Studio</h1>
+      <p class="brand-sub">Turn any photo into poster cover art. Photos never leave this machine.</p>
+    </header>
+
+    <div class="step"><span class="step-no">1</span><h2>Photos</h2></div>
+    <label class="upload">Add your photos
+      <input id="photoFiles" type="file" accept="image/*" multiple>
+    </label>
+    <div class="samples" id="samples">
+      <button type="button" data-sample="pier">Pier sample</button>
+      <button type="button" data-sample="boulevard">Boulevard sample</button>
+      <button type="button" id="fillAll">Fill every panel with photo 1</button>
+    </div>
+    <p class="hint">Click a panel in the preview to select it, then drag it to move the photo and use zoom below.</p>
+    <label class="field">Panel photo
+      <select id="panelPhoto"></select>
+    </label>
+    <label class="field">Zoom panel photo
+      <input id="panelZoom" type="range" min="1" max="3" step="0.05" value="1.2">
+    </label>
+    <div class="row">
+      <button type="button" id="zoomOut">− Zoom</button>
+      <button type="button" id="zoomIn">+ Zoom</button>
+      <button type="button" id="centrePhoto">Centre</button>
+    </div>
+
+    <div class="step"><span class="step-no">2</span><h2>Layout &amp; grade</h2></div>
+    <label class="field">Panels
+      <select id="layout">
+        <option value="hero">Hero + three</option>
+        <option value="grid4">Four squares</option>
+        <option value="nine">Nine grid</option>
+        <option value="full">Full bleed</option>
+      </select>
+    </label>
+    <label class="field">Colour grade
+      <select id="grade">
+        <option value="sunset">Vice sunset</option>
+        <option value="neon">Neon nights</option>
+        <option value="palm">Palm gold</option>
+        <option value="dusk">Dusk violet</option>
+        <option value="plain">No grade</option>
+      </select>
+    </label>
+    <label class="field">Export size
+      <select id="size">
+        <option value="1080x1080">Square · 1080 × 1080</option>
+        <option value="1080x1350">Portrait · 1080 × 1350</option>
+        <option value="1920x1080">Wide · 1920 × 1080</option>
+      </select>
+    </label>
+
+    <div class="step"><span class="step-no">3</span><h2>Caption</h2></div>
+    <label class="field">Title
+      <input id="caption" type="text" maxlength="28" value="Sunset Heist">
+    </label>
+    <label class="field">Subtitle
+      <input id="subtitle" type="text" maxlength="40" value="PALM SHORES · AFTER DARK">
+    </label>
+    <label class="field">Title style
+      <select id="titleStyle">
+        <option value="sunset">Sunset gradient</option>
+        <option value="neon">Neon pink</option>
+        <option value="white">Clean white</option>
+      </select>
+    </label>
+
+    <button type="button" id="exportBtn" class="export">⬇ Export PNG</button>
+    <p id="status" role="status">Load a photo to begin — or try a sample.</p>
+    <p class="fine">Original art and lettering made here. No game logos, artwork or fonts.</p>
+  </section>
+
+  <section class="preview-side" aria-label="Live cover preview">
+    <div class="preview-head">
+      <span id="sizeLabel">1080 × 1080</span>
+      <span id="panelLabel">Panel 1 selected — drag to move the photo</span>
+    </div>
+    <canvas id="cover" width="1080" height="1080" aria-label="Cover preview"></canvas>
+    <p class="preview-tip">Live preview — what you see is what the PNG looks like.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
